@@ -1,0 +1,66 @@
+{
+  "add_prefix_space": false,
+  "bos_token": {
+    "__type": "AddedToken",
+    "content": "<s>",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "cls_token": {
+    "__type": "AddedToken",
+    "content": "[CLS]",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "eos_token": {
+    "__type": "AddedToken",
+    "content": "</s>",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "errors": "replace",
+  "full_tokenizer_file": null,
+  "mask_token": {
+    "__type": "AddedToken",
+    "content": "[MASK]",
+    "lstrip": true,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "max_len": 514,
+  "name_or_path": "./ChemLM_models/Chem_SmELECTRA",
+  "pad_token": {
+    "__type": "AddedToken",
+    "content": "[PAD]",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "sep_token": {
+    "__type": "AddedToken",
+    "content": "[SEP]",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  },
+  "special_tokens_map_file": "/content/drive/My Drive/Project De Novo/Molecule Transformer/SMILES_tokenized_PubChem_shard00_100k/checkpoint-60000/special_tokens_map.json",
+  "tokenizer_class": "RobertaTokenizer",
+  "trim_offsets": true,
+  "unk_token": {
+    "__type": "AddedToken",
+    "content": "[UNK]",
+    "lstrip": false,
+    "normalized": true,
+    "rstrip": false,
+    "single_word": false
+  }
+}
