@@ -1,0 +1,88 @@
+model:
+  names:
+  - hf_text
+  hf_text:
+    checkpoint_name: DeepSA
+    gradient_checkpointing: false
+    pooling_mode: cls
+    data_types:
+    - text
+    tokenizer_name: hf_auto
+    max_text_len: 512
+    insert_sep: true
+    text_segment_num: 2
+    stochastic_chunk: false
+    text_aug_detect_length: 10
+    text_trivial_aug_maxscale: 0.0
+    text_train_augment_types: null
+data:
+  image:
+    missing_value_strategy: skip
+  text: null
+  categorical:
+    minimum_cat_count: 100
+    maximum_num_cat: 20
+    convert_to_text: true
+  numerical:
+    convert_to_text: false
+    scaler_with_mean: true
+    scaler_with_std: true
+  label:
+    numerical_label_preprocessing: standardscaler
+  pos_label: null
+  mixup:
+    turn_on: false
+    mixup_alpha: 0.8
+    cutmix_alpha: 1.0
+    cutmix_minmax: null
+    prob: 1.0
+    switch_prob: 0.5
+    mode: batch
+    turn_off_epoch: 5
+    label_smoothing: 0.1
+optimization:
+  optim_type: adamw
+  learning_rate: 0.001
+  weight_decay: 0.001
+  lr_choice: layerwise_decay
+  lr_decay: 0.9
+  lr_schedule: cosine_decay
+  max_epochs: 20
+  max_steps: -1
+  warmup_steps: 0.2
+  end_lr: 0
+  lr_mult: 1
+  patience: 15
+  val_check_interval: 0.2
+  gradient_clip_val: 1
+  gradient_clip_algorithm: norm
+  track_grad_norm: -1
+  log_every_n_steps: 10
+  top_k: 3
+  top_k_average_method: greedy_soup
+  efficient_finetune: null
+  lora:
+    r: 8
+    alpha: 8
+    filter:
+    - query
+    - value
+    - ^q$
+    - ^v$
+    - ^k$
+    - ^o$
+  loss_function: auto
+env:
+  num_gpus: 1
+  num_nodes: 1
+  batch_size: 8
+  per_gpu_batch_size: 256
+  eval_batch_size_ratio: 4
+  per_gpu_batch_size_evaluation: null
+  precision: 16
+  num_workers: 2
+  num_workers_evaluation: 2
+  fast_dev_run: false
+  deterministic: false
+  auto_select_gpus: true
+  strategy: ddp_spawn

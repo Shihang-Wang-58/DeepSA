@@ -1,0 +1,1 @@
+{"column_types": {"smiles": "text", "label": "text"}, "label_column": "label", "problem_type": "binary", "eval_metric_name": "acc", "validation_metric_name": "acc", "output_shape": 2, "save_path": "/mnt/f/WSL/g/DATA/DeepSA/ReTraining/DeepSA", "pretrained_path": null, "version": "0.5.2"}

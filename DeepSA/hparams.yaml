@@ -1,0 +1,14 @@
+optim_type: adamw
+lr_choice: layerwise_decay
+lr_schedule: cosine_decay
+lr: 0.001
+lr_decay: 0.9
+end_lr: 0
+lr_mult: 1
+weight_decay: 0.001
+warmup_steps: 0.2
+validation_metric_name: acc
+custom_metric_func: null
+efficient_finetune: null
+mixup_fn: null
+mixup_off_epoch: 5
