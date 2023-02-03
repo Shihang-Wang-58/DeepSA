@@ -27,7 +27,7 @@ You can run it from the command line
 running:
 ```
     cd ./DeepSA
-    python DeepSA.py <input_csv> <model_name>
+    python DeepSA.py <input_csv> DeepSA
 ```
 
 ## Online Server
