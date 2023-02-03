@@ -6,27 +6,19 @@ DeepSA is proposed to predict synthesis accessibility of compounds, and has a mu
 
 ## Requirements
 
-- Python == 3.X.X
-- tensorflow-gpu == 1.14.0
-- scikit-learn == 0.24.0
-- pandas ==  1.1.5
-- numpy == 1.19.5
-- matplotlib == 3.3.4
+- Python == 3.8.13
+- scikit-learn == 1.0.2
+- pandas ==  1.4.2
+- numpy == 1.21.6
+- matplotlib == 3.2.2
 
 
 Dependencies can be installed using the following command:
 ```bash
-conda create -n DeepSA python=3.X.X
+conda create -n DeepSA python=3.8.13
 conda activate DeepSA
 
-pip install -r requirements.txt
-```
-- CUDA == 10.0 (This is just a suggestion to make sure your program works properly)
-- how to install CUDA and cuDNN:
-```
-conda install cudatoolkit=10.0   
-conda install cudnn=7.6.5
-```
+pip install -r conda_env.list
 
 ## Usage For Researchers
 
@@ -35,7 +27,7 @@ You can run it from the command line
 running:
 ```
     cd ./DeepSA
-    python DeepSA.py
+    python DeepSA.py <input_csv> <model_name>
 ```
 
 ## Online Server
