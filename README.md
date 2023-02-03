@@ -19,7 +19,7 @@ conda create -n DeepSA python=3.8.13
 conda activate DeepSA
 
 pip install -r conda_env.list
-
+```
 ## Usage For Researchers
 
 You can run it from the command line
