@@ -77,12 +77,12 @@ def gen_smiles(smiles, kekule=False, random=False):
     return random_smiles
 
 def make_prediction(dataset, model_path):
-    predictor_deepshape = TextPredictor.load(path=model_path, verbosity=0)
+    predictor_deepsa = TextPredictor.load(path=model_path, verbosity=0)
     dataset['smiles'].apply(lambda x:gen_smiles(x, random=False, kekule=False))
     dataset.drop_duplicates(subset=['smiles'], keep='first', inplace=True)
-    sa_data = predictor_deepshape.predict_proba(dataset, as_pandas=True)
+    sa_data = predictor_deepsa.predict_proba(dataset, as_pandas=True)
     output_data = dataset.join(sa_data, how='left')
-    del predictor_deepshape
+    del predictor_deepsa
     torch.cuda.empty_cache()
     return output_data
 
