@@ -20,7 +20,10 @@ conda activate DeepSA
 
 pip3 install -U pip
 pip3 install -U setuptools wheel
+# for cpu version
 pip3 install torch==1.12+cpu torchvision==0.13.0+cpu torchtext==0.13.0 -f https://download.pytorch.org/whl/cpu/torch_stable.html
+# for gpu version
+# pip3 install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchtext==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu113
 pip3 install autogluon==0.5.2
 pip3 install rdkit
 ```
