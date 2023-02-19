@@ -18,7 +18,11 @@ Dependencies can be installed using the following command:
 conda create -n DeepSA python=3.8.13
 conda activate DeepSA
 
-pip install -r conda_env.list
+pip3 install -U pip
+pip3 install -U setuptools wheel
+pip3 install torch==1.12+cpu torchvision==0.13.0+cpu torchtext==0.13.0 -f https://download.pytorch.org/whl/cpu/torch_stable.html
+pip3 install autogluon==0.5.2
+pip3 install rdkit
 ```
 ## Usage For Researchers
 
