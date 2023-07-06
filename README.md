@@ -31,6 +31,7 @@ pip3 install rdkit
 The expand training and tes datasets could be easily downloaded at https://drive.google.com/drive/folders/1iup6T3Bqyy-uvpdFyP0Of_WQqn-9l62h?usp=sharing
 ## Usage For Researchers
 If you want to train your own model, you can run it from the command line,
+
 running:
 ```
     cd ./DeepSA
@@ -41,7 +42,7 @@ If you want to use the model we proposed,
 running:
 ```
     cd ./DeepSA
-    python DeepSA.py <input_csv> DeepSA
+    python DeepSA.py <input_data.csv> DeepSA
 ```
 
 ## Online Server
