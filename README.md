@@ -28,11 +28,15 @@ pip3 install autogluon==0.5.2
 pip3 install rdkit
 ```
 ## Data 
-The expand data could be easily downloaded at https://drive.google.com/drive/folders/1iup6T3Bqyy-uvpdFyP0Of_WQqn-9l62h?usp=sharing
+The expand training and tes datasets could be easily downloaded at https://drive.google.com/drive/folders/1iup6T3Bqyy-uvpdFyP0Of_WQqn-9l62h?usp=sharing
 ## Usage For Researchers
-
-
-You can run it from the command line
+If you want to train your own model, you can run it from the command line,
+running:
+```
+    cd ./DeepSA
+    python DeepSA_training.py <dataset.csv/training.csv:test.csv> DeepSA ./test_set.list
+```
+If you want to use the model we proposed,
 
 running:
 ```
