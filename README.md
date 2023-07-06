@@ -34,14 +34,12 @@ If you want to train your own model, you can run it from the command line,
 
 running:
 ```
-    cd ./DeepSA
-    python DeepSA_training.py <dataset.csv/training.csv:test.csv> DeepSA ./test_set.list
+    python DeepSA_training.py <dataset.csv/training.csv:test.csv> DeepSA ./data/test_set.list
 ```
 If you want to use the model we proposed,
 
 running:
 ```
-    cd ./DeepSA
     python DeepSA.py <input_data.csv> DeepSA
 ```
 
