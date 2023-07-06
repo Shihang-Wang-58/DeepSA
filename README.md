@@ -27,7 +27,10 @@ pip3 install torch==1.12+cpu torchvision==0.13.0+cpu torchtext==0.13.0 -f https:
 pip3 install autogluon==0.5.2
 pip3 install rdkit
 ```
+## Data 
+The expand data could be easily downloaded at https://drive.google.com/drive/folders/1iup6T3Bqyy-uvpdFyP0Of_WQqn-9l62h?usp=sharing
 ## Usage For Researchers
+
 
 You can run it from the command line
 
