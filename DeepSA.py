@@ -76,9 +76,10 @@ def gen_smiles(smiles, kekule=False, random=False):
         random_smiles = smiles
     return random_smiles
 
-def make_prediction(dataset, model_path):
+def make_prediction(dataset, model_path, standardized=False):
     predictor_deepsa = TextPredictor.load(path=model_path, verbosity=0)
-    dataset['smiles'].apply(lambda x:gen_smiles(x, random=False, kekule=False))
+    if standardized:
+        dataset['smiles'] = dataset['smiles'].apply(lambda x:gen_smiles(x, random=False, kekule=False))
     dataset.drop_duplicates(subset=['smiles'], keep='first', inplace=True)
     sa_data = predictor_deepsa.predict_proba(dataset, as_pandas=True)
     output_data = dataset.join(sa_data, how='left')
