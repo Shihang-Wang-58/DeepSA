@@ -5,7 +5,6 @@ import numpy as np
 from autogluon.text import TextPredictor
 from rdkit import Chem
 from rdkit.Chem import Descriptors, rdMolDescriptors
-from matplotlib import pyplot as plt
 
 def smiles2mw(smiles):
     try:
@@ -88,13 +87,8 @@ def make_prediction(dataset, model_path):
     return output_data
 
 if __name__ == '__main__':
-    # check GPU
-    print('CUDA available:', torch.cuda.is_available())  # Should be True
-    print('CUDA capability:', torch.cuda.get_arch_list()) 
-    print('GPU number:', torch.cuda.device_count())  # Should be > 0
     data_csv = pd.read_csv(sys.argv[1])
     model_path = sys.argv[2]
-    data_csv['smiles'] = data_csv.apply(lambda x: gen_smiles(x['smiles']), axis=1)
     data = make_prediction(data_csv, model_path)
     data['HA_num'] = data.apply(lambda x: smiles2HA(x['smiles']), axis=1)
     data['RingSystem_num'] = data.apply(lambda x: smiles2RS(x['smiles']), axis=1)
@@ -103,4 +97,5 @@ if __name__ == '__main__':
     output_basename = str(sys.argv[1].split("/")[-1].split(".")[0])
     data.to_csv(str(sys.argv[1].split("/")[-1].split(".")[0]+"_results.csv"), index=False, header=True, sep=',')
    
+
 
