@@ -53,7 +53,7 @@ Users can upload their SMILES or csv files to the server, and then they can quic
 If you find this repository useful in your research, please consider citing the Github:<br/>
 https://github.com/Shihang-Wang-58/DeepSA<br/>
 
-Papers involving DeepSA have been submitted to an academic journal.
+Wang, S., Wang, L., Li, F. et al. DeepSA: a deep-learning driven predictor of compound synthesis accessibility. J Cheminform 15, 103 (2023). https://doi.org/10.1186/s13321-023-00771-3
 
 ## Contact
 If you have any questions, please feel free to contact Shihang Wang (Email: wangshh12022@shanghaitech.edu.cn) or Lin Wang (Email: wanglin3@shanghaitech.edu.cn). 
