@@ -50,8 +50,7 @@ We deployed a pre-trained model on a dedicated server, which is publicly availab
 Users can upload their SMILES or csv files to the server, and then they can quickly obtain the predicted results.
 
 ## <span id="citelink">Citation</span>
-If you find this repository useful in your research, please consider citing the Github:<br/>
-https://github.com/Shihang-Wang-58/DeepSA<br/>
+If you find this repository useful in your research, please consider citing our paper: 
 
 Wang, S., Wang, L., Li, F. et al. DeepSA: a deep-learning driven predictor of compound synthesis accessibility. J Cheminform 15, 103 (2023). https://doi.org/10.1186/s13321-023-00771-3
 
