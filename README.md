@@ -26,6 +26,13 @@ pip3 install torch==1.12+cpu torchvision==0.13.0+cpu torchtext==0.13.0 -f https:
 pip3 install autogluon==0.5.2
 pip3 install rdkit
 ```
+### Note 🔔 
+Because AutoGluon stopped supporting python version 3.8 starting in October. Therefore, if you have tried to configure the DeepSA environment in the recent past, there is a high probability that the full AutoGluon was not installed properly in the process, thus preventing you from running the program properly.
+
+I recommend that you use python 3.9 and above when creating your environment and reconfigure it.
+
+As the author is very busy recently, we will update DeepSA as soon as possible to fix this issue, thanks for your interest in DeepSA!
+
 ## Data 
 The expand training and tes datasets could be easily downloaded at https://drive.google.com/drive/folders/1iup6T3Bqyy-uvpdFyP0Of_WQqn-9l62h?usp=sharing
 ## Usage For Researchers
