@@ -69,3 +69,4 @@ Pull requests are highly welcomed!
 We are grateful for the support from HPC Platform of ShanghaiTech University.<br/>
 Thank you all for your attention to this work.
 
+![Star History Chart](https://api.star-history.com/svg?repos=Shihang-Wang-58/DeepSA&type=Date)
