@@ -3,7 +3,7 @@ import time
 import torch
 import pandas as pd
 import numpy as np
-from autogluon.text import TextPredictor
+from autogluon.multimodal import MultiModalPredictor
 from sklearn.utils import shuffle
 from rdkit import Chem
 from sklearn.metrics import roc_curve, auc
@@ -95,13 +95,10 @@ def training(train_set, model_name, pretrained_model, label):
             "env.num_workers_evaluation": 2,
         }
     deppshape_hyperparameters = { **common_hyperparameters, **batch_hyperparameters }
-    predictor_proseq = TextPredictor(label=label, path=model_name, eval_metric='acc').fit(
+    predictor_proseq = MultiModalPredictor(label=label, path=model_name, eval_metric='accuracy').fit(
         train_set, 
         presets = None, # best_quality, high_quality,medium_quality_faster_train
         column_types = {"smiles": "text", label: "categorical"},
-        num_cpus = 12, 
-        num_gpus = 1,
-        plot_results = True,
         hyperparameters = deppshape_hyperparameters, 
         seed = training_random_seed,
     )
@@ -160,17 +157,7 @@ if __name__ == '__main__':
     training_random_seed = 3407
     np.random.seed(training_random_seed)
     pretrained_models = {
-        "ChemMLM": {'path':"DeepChem/ChemBERTa-77M-MLM", "batch_size_per_gpu": 256}, 
-        #"ChemMTR": {'path':"DeepChem/ChemBERTa-77M-MTR", "batch_size_per_gpu": 256}, 
-        #"TinBert": {'path':"prajjwal1/bert-tiny", "batch_size_per_gpu": 256},
-        #"MinBert": {'path':"prajjwal1/bert-mini", "batch_size_per_gpu": 256},
-        #"SmELECTRA": {'path':"google/electra-small-discriminator", "batch_size_per_gpu": 256},
-        #"GraphCodeBert": {'path':"microsoft/graphcodebert-base", "batch_size_per_gpu": 32}, 
-        #"RoBERTa": {'path':"roberta-base", "batch_size_per_gpu": 72},
-        #"DeBERTa": {'path':"microsoft/deberta-v3-base", "batch_size_per_gpu": 48}, 
-        #"Chem_GraphCodeBert": {'path':"./ChemLM_models/Chem_GraphCodeBert", "batch_size_per_gpu": 64}, 
-        #"Chem_CodeBert": {'path':"./ChemLM_models/Chem_CodeBert", "batch_size_per_gpu": 64}, 
-        #############################################
+        "SmELECTRA": {'path':"google/electra-small-discriminator", "batch_size_per_gpu": 256},
     }
     # read data and build dataset
     data_set = sys.argv[1]

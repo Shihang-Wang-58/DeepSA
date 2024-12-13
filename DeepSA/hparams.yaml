@@ -7,8 +7,9 @@ end_lr: 0
 lr_mult: 1
 weight_decay: 0.001
 warmup_steps: 0.2
-validation_metric_name: acc
+validation_metric_name: accuracy
 custom_metric_func: null
 efficient_finetune: null
-mixup_fn: null
 mixup_off_epoch: 5
+skip_final_val: false
+track_grad_norm: -1

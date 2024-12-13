@@ -5,33 +5,20 @@ With the continuous development of artificial intelligence technology, more and 
 DeepSA is proposed to predict synthesis accessibility of compounds, and has a much higher early enrichment rate in discriminating molecules that are difficult to synthesize. This helps users to select less expensive molecules for synthesis, thus reducing the time for drug discovery and development. You can use DeepSA on a webserver at https://bailab.siais.shanghaitech.edu.cn/deepsa<br/>
 
 ## Requirements
-
-- Python == 3.8.13
-- scikit-learn == 1.0.2
-- pandas ==  1.4.2
-- numpy == 1.21.6
-- matplotlib == 3.2.2
-
-
 Dependencies can be installed using the following command:
 ```bash
-conda create -n DeepSA python=3.8.13
+conda create -n DeepSA python=3.12
 conda activate DeepSA
-
-pip3 install --upgrade pip==24.0
-# for cpu version
-pip3 install torch==1.12+cpu torchvision==0.13.0+cpu torchtext==0.13.0 -f https://download.pytorch.org/whl/cpu/torch_stable.html
 # for gpu version
-# pip3 install torch==1.12.1+cu113 torchvision==0.13.1+cu113 torchtext==0.13.1 --extra-index-url https://download.pytorch.org/whl/cu113
-pip3 install autogluon==0.5.2
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+pip3 install autogluon
 pip3 install rdkit
 ```
-### Note 🔔 
-Because AutoGluon stopped supporting python version 3.8 starting in October. Therefore, if you have tried to configure the DeepSA environment in the recent past, there is a high probability that the full AutoGluon was not installed properly in the process, thus preventing you from running the program properly.
+### News 🔔 
 
-I recommend that you use python 3.9 and above when creating your environment and reconfigure it.
+* 2024-12, because [AutoGluon stopped supporting python version 3.8](https://github.com/autogluon/autogluon/pull/4512) starting in October 2024. Therefore, we have updated DeepSA to use Python version 3.12 and updated the training and inference scripts to adapt to the latest version of AutoGluon, thanks for your interest in DeepSA!
 
-As the author is very busy recently, we will update DeepSA as soon as possible to fix this issue, thanks for your interest in DeepSA!
+* 2023-7, DeepSA_v1.0 has been released, welcome to provide feedback on the issue!
 
 ## Data 
 The expand training and tes datasets could be easily downloaded at https://drive.google.com/drive/folders/1iup6T3Bqyy-uvpdFyP0Of_WQqn-9l62h?usp=sharing

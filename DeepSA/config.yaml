@@ -2,34 +2,40 @@ model:
   names:
   - hf_text
   hf_text:
-    checkpoint_name: DeepSA
+    checkpoint_name: local://hf_text
     gradient_checkpointing: false
     pooling_mode: cls
     data_types:
     - text
     tokenizer_name: hf_auto
+    use_fast: true
     max_text_len: 512
     insert_sep: true
+    low_cpu_mem_usage: false
     text_segment_num: 2
     stochastic_chunk: false
     text_aug_detect_length: 10
-    text_trivial_aug_maxscale: 0.0
+    text_trivial_aug_maxscale: 0.1
     text_train_augment_types: null
 data:
   image:
-    missing_value_strategy: skip
-  text: null
+    missing_value_strategy: zero
+  text:
+    normalize_text: false
   categorical:
     minimum_cat_count: 100
     maximum_num_cat: 20
-    convert_to_text: true
+    convert_to_text: false
   numerical:
     convert_to_text: false
     scaler_with_mean: true
     scaler_with_std: true
+  document:
+    missing_value_strategy: zero
   label:
     numerical_label_preprocessing: standardscaler
   pos_label: null
+  column_features_pooling_mode: concat
   mixup:
     turn_on: false
     mixup_alpha: 0.8
@@ -40,6 +46,14 @@ data:
     mode: batch
     turn_off_epoch: 5
     label_smoothing: 0.1
+  templates:
+    turn_on: false
+    num_templates: 30
+    template_length: 2048
+    preset_templates:
+    - super_glue
+    - rte
+    custom_templates: null
 optimization:
   optim_type: adamw
   learning_rate: 0.001
@@ -54,6 +68,8 @@ optimization:
   lr_mult: 1
   patience: 15
   val_check_interval: 0.2
+  check_val_every_n_epoch: 1
+  skip_final_val: false
   gradient_clip_val: 1
   gradient_clip_algorithm: norm
   track_grad_norm: -1
@@ -62,8 +78,7 @@ optimization:
   top_k_average_method: greedy_soup
   efficient_finetune: null
   lora:
-    r: 8
-    alpha: 8
+    module_filter: null
     filter:
     - query
     - value
@@ -71,7 +86,19 @@ optimization:
     - ^v$
     - ^k$
     - ^o$
+    r: 8
+    alpha: 8
+    conv_lora_expert_num: 8
   loss_function: auto
+  focal_loss:
+    alpha: null
+    gamma: 2.0
+    reduction: mean
+  mask2former_loss:
+    loss_cross_entropy_weight: 10.0
+    loss_mask_weight: 5.0
+    loss_dice_weight: 5.0
+  extra_trainable_params: []
 env:
   num_gpus: 1
   num_nodes: 1
@@ -79,10 +106,18 @@ env:
   per_gpu_batch_size: 256
   eval_batch_size_ratio: 4
   per_gpu_batch_size_evaluation: null
-  precision: 16
+  precision: 16-mixed
   num_workers: 2
   num_workers_evaluation: 2
+  accelerator: auto
   fast_dev_run: false
   deterministic: false
   auto_select_gpus: true
-  strategy: ddp_spawn
+  strategy: auto
+  deepspeed_allgather_size: 1000000000.0
+  deepspeed_allreduce_size: 1000000000.0
+  compile:
+    turn_on: false
+    mode: default
+    dynamic: true
+    backend: inductor

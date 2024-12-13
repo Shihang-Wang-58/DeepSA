@@ -2,7 +2,7 @@ import sys
 import torch
 import pandas as pd
 import numpy as np
-from autogluon.text import TextPredictor
+from autogluon.multimodal import MultiModalPredictor
 from rdkit import Chem
 from rdkit.Chem import Descriptors, rdMolDescriptors
 
@@ -77,7 +77,7 @@ def gen_smiles(smiles, kekule=False, random=False):
     return random_smiles
 
 def make_prediction(dataset, model_path, standardized=False):
-    predictor_deepsa = TextPredictor.load(path=model_path, verbosity=0)
+    predictor_deepsa = MultiModalPredictor.load(path=model_path, verbosity=0)
     if standardized:
         dataset['smiles'] = dataset['smiles'].apply(lambda x:gen_smiles(x, random=False, kekule=False))
     dataset.drop_duplicates(subset=['smiles'], keep='first', inplace=True)
