@@ -27,7 +27,7 @@ If you want to train your own model, you can run it from the command line,
 
 running:
 ```
-    python DeepSA_training.py <dataset.csv/training.csv:test.csv> DeepSA ./data/test_set.list
+    python DeepSA_training.py <dataset.csv/training.csv:test.csv> DeepSA_model ./data/test_set.list
 ```
 If you want to use the model we proposed,
 
