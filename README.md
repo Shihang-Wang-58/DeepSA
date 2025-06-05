@@ -33,7 +33,7 @@ If you want to use the model we proposed,
 
 running:
 ```
-    python DeepSA.py <input_data.csv> DeepSA
+    python DeepSA_predict.py <input_data.csv> DeepSA_model
 ```
 
 ## Online Server
