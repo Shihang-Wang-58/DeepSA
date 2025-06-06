@@ -1,0 +1,6 @@
+include README.md
+include LICENSE
+include deepsa/model/*
+include deepsa/model/hf_text/*
+recursive-include deepsa/model *.json *.yaml *.pkl *.ckpt
+recursive-include deepsa/model/hf_text *.json *.txt

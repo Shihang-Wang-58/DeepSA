@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "deepsa"
+version = "0.1.2"
+authors = [
+    {name = "Shihang Wang", email = "wangshh12022@shanghaitech.edu.cn"},
+]
+description = "A Deep-learning Driven Predictor of Compound Synthesis Accessibility"
+readme = "README.rst"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/Shihang-Wang-58/DeepSA"
+"Bug Tracker" = "https://github.com/Shihang-Wang-58/DeepSA/issues"
+
+[project.scripts]
+deepsa-predict = "deepsa.cli:predict_cli"
+deepsa-train = "deepsa.cli:train_cli"
